@@ -1,0 +1,16 @@
+name: DAST ZAP Scan
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan Website
+    steps:
+      - name: OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.7.0
+        with:
+          # IMPORTANT: Change this URL to your live testing website!
+          target: 'https://www.example.com'
